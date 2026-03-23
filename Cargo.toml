@@ -46,8 +46,6 @@ toml = "0.8"                  # TOML config file parsing
 anyhow = "1.0"                # Flexible error handling
 thiserror = "2.0"             # Custom error types
 
-# Logging
-tracing = "0.1"               # Structured diagnostic logging
 
 # Search
 sublime_fuzzy = "0.7"        # Fuzzy string matching

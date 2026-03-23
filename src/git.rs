@@ -113,10 +113,6 @@ pub fn detect_squash_merges(
         match output {
             Ok(o) if o.status.success() => String::from_utf8_lossy(&o.stdout).trim().to_string(),
             _ => {
-                tracing::warn!(
-                    branch = default_branch,
-                    "Could not resolve tree for default branch, skipping squash-merge detection"
-                );
                 return vec![format!(
                     "Could not resolve tree for '{}', skipping squash-merge detection",
                     default_branch
@@ -132,10 +128,6 @@ pub fn detect_squash_merges(
             match is_branch_merged_by_tree(&default_tree, default_branch, &branch.name) {
                 Some(true) => branch.is_merged = true,
                 None => {
-                    tracing::warn!(
-                        branch = branch.name.as_str(),
-                        "Squash-merge tree check failed for branch"
-                    );
                     errors.fetch_add(1, Ordering::Relaxed);
                 }
                 Some(false) => {}
