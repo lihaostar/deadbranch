@@ -55,7 +55,7 @@ pub fn spinner(message: &str) -> ProgressBar {
     spinner.set_style(
         ProgressStyle::default_spinner()
             .tick_chars("⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏")
-            .template("{spinner} {msg}")
+            .template("{spinner:.blue} {msg}")
             .unwrap(),
     );
     spinner.set_message(message.to_string());
